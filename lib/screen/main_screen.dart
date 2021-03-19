@@ -1,5 +1,4 @@
-import 'package:app_wat/screen/article/article_screen.dart';
-import 'package:app_wat/screen/home/home_screen.dart';
+import 'package:app_wat/screen/page.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatefulWidget {
@@ -11,20 +10,6 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
-  List<Page> _pages = [
-    Page(
-      title: "หน้าแรก",
-      icon: Icon(Icons.home),
-      label: "หน้าแรก",
-      screen: HomeScreen(),
-    ),
-    Page(
-      title: "ข่าวสาร",
-      icon: Icon(Icons.art_track_outlined),
-      label: "ข่าว",
-      screen: ArticleScreen(),
-    ),
-  ];
 
   onTabChanged(int index) {
     setState(() {
@@ -67,14 +52,14 @@ class _MainScreenState extends State<MainScreen> {
         ),
         appBar: AppBar(
           title: Text(
-            _pages[_currentIndex].title,
+            pages[_currentIndex].title,
           ),
         ),
-        body: _pages[_currentIndex].screen,
+        body: pages[_currentIndex].screen,
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _currentIndex,
           onTap: onTabChanged,
-          items: _pages
+          items: pages
               .map(
                 (page) => BottomNavigationBarItem(
                   icon: page.icon,
@@ -86,12 +71,4 @@ class _MainScreenState extends State<MainScreen> {
       ),
     );
   }
-}
-
-class Page {
-  final Icon icon;
-  final String title;
-  final String label;
-  final Widget screen;
-  Page({this.screen, this.icon, this.title, this.label});
 }
