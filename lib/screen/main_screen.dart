@@ -1,5 +1,5 @@
-import 'package:app_wat/screen/article_screen.dart';
-import 'package:app_wat/screen/home_screen.dart';
+import 'package:app_wat/screen/article/article_screen.dart';
+import 'package:app_wat/screen/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatefulWidget {
@@ -12,8 +12,18 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
   List<Page> _pages = [
-    Page(title: "หน้าแรก", icon: Icon(Icons.home), label: "หน้าแรก", screen: HomeScreen()),
-    Page(title: "ข่าวสาร", icon: Icon(Icons.home), label: "ข่าว", screen: ArticleScreen()),
+    Page(
+      title: "หน้าแรก",
+      icon: Icon(Icons.home),
+      label: "หน้าแรก",
+      screen: HomeScreen(),
+    ),
+    Page(
+      title: "ข่าวสาร",
+      icon: Icon(Icons.art_track_outlined),
+      label: "ข่าว",
+      screen: ArticleScreen(),
+    ),
   ];
 
   onTabChanged(int index) {
