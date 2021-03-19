@@ -15,18 +15,24 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MainScreen(),
-      // onGenerateRoute: OnGenerateRoute.onGenerateRoute,
+      onGenerateRoute: OnGenerateRoute.onGenerateRoute,
     );
   }
 }
 
-// class OnGenerateRoute {
-//   static onGenerateRoute(Route settings) {
-
-//     switch (settings){
-//       case: '/':
-//       default:
-//         return MaterialPageRoute(builder: (context) => MainScreen(),);
-//     }
-//   }
-// }
+class OnGenerateRoute {
+  static Route onGenerateRoute(RouteSettings settings) {
+    var args = settings.arguments;
+    switch (settings.name) {
+      case '/':
+        return MaterialPageRoute(
+          builder: (context) => MainScreen(),
+        );
+        break;
+      default:
+        return MaterialPageRoute(
+          builder: (context) => MainScreen(),
+        );
+    }
+  }
+}
